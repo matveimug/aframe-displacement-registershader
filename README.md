@@ -9,15 +9,9 @@ Click `Show` in the header to see the demo.
 Features
 ------------
 
-On the back-end,
 - A basic webserver defined by `server.js`
-- Shaders are compiled by `glslify`. Compilatio
-- safely store app secrets in `.env`
-
-On the front-end,
-- edit `client.js`, `style.css` and `index.html`
-- drag in `assets`, like images or music, to add them to your project
-
+- Shaders are compiled by `glslify`. Compilation isn't necessary, but makes it possible to import helper functions through NPM.
+- The component `material-displacement` is defined by `index.js`. It uses our custom shaders to create a THREE.ShaderMaterial and attach it to the entity.
 
 Credit
 ------------
