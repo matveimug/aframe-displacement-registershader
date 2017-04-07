@@ -1,19 +1,17 @@
-Welcome to the Glitch BETA
+Writing a displacement shader in A-Frame
 =========================
 
-Click `Show` in the header to see your app live. Updates to your code will instantly deploy and update live.
+This example shows how to write custom shaders (GLSL) and use them to create effects in A-Frame / three.js / WebGL.
 
-Glitch is a developer playground that lets you code a real web-app without the slow setup and deployment steps.
-
-[About Glitch](https://glitch.com/about)
+Click `Show` in the header to see the demo. 
 
 
-Your Project
+Features
 ------------
 
 On the back-end,
-- your app starts at `server.js`
-- add frameworks and packages in `package.json`
+- A basic webserver defined by `server.js`
+- Shaders are compiled by `glslify`. Compilatio
 - safely store app secrets in `.env`
 
 On the front-end,
@@ -21,7 +19,8 @@ On the front-end,
 - drag in `assets`, like images or music, to add them to your project
 
 
-Made by Fog Creek
------------------
+Credit
+------------
 
-\ ゜o゜)ノ
+This example is based closely on an excellent article by [@thespite](https://twitter.com/thespite), [Vertex displacement with a noise function using GLSL and three.js](https://www.clicktorelease.com/blog/vertex-displacement-noise-3d-webgl-glsl-three-js/).
+
