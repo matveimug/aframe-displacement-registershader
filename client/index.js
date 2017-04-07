@@ -17,7 +17,6 @@ AFRAME.registerComponent('material-displacement', {
     });
     this.el.addEventListener('model-loaded', () => this.update());
   },
-  
 
   /**
    * Apply the material to the current entity.
