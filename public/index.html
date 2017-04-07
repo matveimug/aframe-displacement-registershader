@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Welcome to Glitch!</title>
+    <meta name="description" content="A cool thing made with Glitch">
+    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <script>
+const vertexShader = `
+
+
+
+///////// CUSTOM STUFF BELOW
+
+varying float noise;
+uniform float time;
+
+float turbulence( vec3 p ) {
+
+  float w = 100.0;
+  float t = -.5;
+
+  for (float f = 1.0 ; f <= 10.0 ; f++ ){
+    float power = pow( 2.0, f );
+    t += abs( pnoise( vec3( power * p ), vec3( 10.0, 10.0, 10.0 ) ) / power );
+  }
+
+  return t;
+
+}
+
+void main() {
+  noise = 10.0 *  -.10 * turbulence( .5 * normal + time / 3. );
+  float b = 5.0 * pnoise( 0.05 * position, vec3( 100.0 ) );
+  float displacement = (- 10. * noise + b) / 50.0;
+
+  vec3 newPosition = position + normal * displacement;
+  gl_Position = projectionMatrix * modelViewMatrix * vec4( newPosition, 1.0 );
+}
+`;
+
+const fragmentShader = `
+varying float noise;
+
+void main() {
+
+  vec3 color = vec3(1. - 2. * noise);
+  gl_FragColor = vec4( color.rgb, 1.0 );
+
+}
+`;
+
+AFRAME.registerComponent('material-displacement', {
+  
+  init: function () {
+    this.material  = new THREE.ShaderMaterial({
+      uniforms: {time: { value: 0.0 },},
+      vertexShader,
+      fragmentShader
+    });
+  },
+  
+  update: function () {
+    const mesh = this.el.getObject3D('mesh');
+    if (mesh) {
+      mesh.material = this.material;
+    }
+  },
+  
+  tick: function (t) {
+    this.material.uniforms.time.value = t / 1000;
+  }
+  
+})
+    </script>
+    <script src="./js/index.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-sphere material-displacement
+                scale="1 1 1"
+                radius="0.2"
+                position="0 1.5 -2"
+                segments-height="128"
+                segments-width="128">
+        <a-animation attribute="scale" direction="alternate-reverse" dur="5000" from="1 1 1" to="4 4 4" repeat="indefinite"></a-animation>
+      </a-sphere>
+      <a-box color="#CCC" width="3" depth="3" height="0.1" position="0 0 -2"></a-box>
+      
+    </a-scene>
+
+  </body>
+</html>

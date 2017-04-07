@@ -1,0 +1,1 @@
+#pragma glslify: pnoise = require(./util.glsl)
