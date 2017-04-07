@@ -1,10 +1,8 @@
 /* global AFRAME, THREE */
 
 const glsl = require('glslify');
-const otherModule = require('./other');
-otherModule();
-const vertexShader = glsl('./shaders/vertex.glsl');
-const fragmentShader = glsl.file('./shaders/fragment.glsl');
+const vertexShader = glsl('../shaders/vertex.glsl');
+const fragmentShader = glsl.file('../shaders/fragment.glsl');
 
 AFRAME.registerComponent('material-displacement', {
   /**
@@ -17,8 +15,7 @@ AFRAME.registerComponent('material-displacement', {
       vertexShader,
       fragmentShader
     });
-    
-    this.el.addEventListener('model-loaded', this.update.bind(this));
+    this.el.addEventListener('model-loaded', () => this.update());
   },
   
 
