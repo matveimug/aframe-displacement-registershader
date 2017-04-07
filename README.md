@@ -3,8 +3,7 @@ Writing a displacement shader in A-Frame
 
 This example shows how to write custom shaders (GLSL) and use them to create effects in A-Frame / three.js / WebGL.
 
-Click `Show` in the header to see the demo. 
-
+Click `Show` in the header to see the demo.
 
 Features
 ------------
