@@ -1,7 +1,7 @@
 /* global AFRAME, THREE */
 
-const glsl = require('glslify');
-const vertexShader = glsl('../shaders/vertex.glsl');
+const glsl = require('glslify-sync');
+const vertexShader = glsl.file('../shaders/vertex.glsl');
 const fragmentShader = glsl.file('../shaders/fragment.glsl');
 
 AFRAME.registerComponent('material-displacement', {
