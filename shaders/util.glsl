@@ -103,3 +103,5 @@ float pnoise(vec3 P, vec3 rep)
   float n_xyz = mix(n_yz.x, n_yz.y, fade_xyz.x); 
   return 2.2 * n_xyz;
 }
+
+#pragma glslify: export(pnoise)
