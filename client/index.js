@@ -1,6 +1,6 @@
 /* global AFRAME, THREE */
 
-const glsl = require('glslify-sync');
+const glsl = require('glslify');
 const vertexShader = glsl.file('../shaders/vertex.glsl');
 const fragmentShader = glsl.file('../shaders/fragment.glsl');
 
