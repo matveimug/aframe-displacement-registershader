@@ -6,7 +6,7 @@ const fragmentShader = glsl.file('../shaders/fragment.glsl');
 
 AFRAME.registerShader('displacement', {
   schema: {
-    time1000: {type:'number', is:'uniform'}
+    time1000: {type:'time', is:'uniform'}
   },
   vertexShader: vertexShader,
   fragmentShader: fragmentShader
