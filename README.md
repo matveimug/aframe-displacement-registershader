@@ -10,7 +10,7 @@ Features
 
 - A basic webserver defined by `server.js`
 - Shaders are compiled by `glslify`. Compilation isn't necessary, but makes it possible to import helper functions through NPM.
-- The component `material-displacement` is defined by `index.js`. It uses our custom shaders to create a THREE.ShaderMaterial and attach it to the entity.
+- The shader `displacement` is defined by `index.js`, and used by specifying the `shader` property of the `material` component in the entity declaration.
 
 Credit
 ------------
