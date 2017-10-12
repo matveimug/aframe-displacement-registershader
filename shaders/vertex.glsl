@@ -8,7 +8,7 @@
 //
 
 varying float noise;
-uniform float time1000;
+uniform float timeMsec; // A-Frame time in milliseconds.
 
 float turbulence( vec3 p ) {
 
@@ -25,7 +25,7 @@ float turbulence( vec3 p ) {
 }
 
 void main() {
-  float time = time1000 / 1000.0;
+  float time = timeMsec / 1000.0; // Convert from A-Frame milliseconds to typical time in seconds.
   noise = 10.0 *  -.10 * turbulence( .5 * normal + time / 3.0 );
   float b = 5.0 * pnoise3( 0.05 * position, vec3( 100.0 ) );
   float displacement = (- 10. * noise + b) / 50.0;
