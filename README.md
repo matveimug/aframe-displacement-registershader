@@ -8,9 +8,9 @@ Click `Show` in the header to see the demo.
 Features
 ------------
 
-- A basic webserver defined by `server.js`
-- Shaders are compiled by `glslify`. Compilation isn't necessary, but makes it possible to import helper functions through NPM.
-- The shader `displacement` is defined by `index.js`, and used by specifying the `shader` property of the `material` component in the entity declaration.
+- The displacement shader, defined by `displacement-shader.js`.
+
+- The webpage `index.html` has a basic scene that uses the displacement shader.  The shader `displacement` is used by specifying the `shader` property of the `material` component in the entity declaration.
 
 Credit
 ------------
